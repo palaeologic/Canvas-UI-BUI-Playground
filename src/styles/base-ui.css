@@ -1,0 +1,20 @@
+/* Base UI provides behavior and accessibility, not the visual theme. */
+.picker-radio-group { display:flex; flex-wrap:wrap; gap:6px; }
+.picker-option { position:relative; display:inline-flex; align-items:center; gap:7px; cursor:pointer; font-size:.92rem; padding:8px 14px 8px 11px; border:1px solid var(--line); border-radius:999px; background:var(--bg); color:var(--muted); transition:background-color .2s,border-color .2s,color .2s,transform .18s var(--ease-out); }
+.picker-option:hover { border-color:color-mix(in srgb,var(--c) 60%,var(--line)); color:var(--ink); transform:translateY(-1px); }
+.picker-option:active { transform:scale(.96); }
+.picker-option:has(.picker-radio[data-checked]) { border-color:var(--c); color:var(--ink); background:color-mix(in srgb,var(--c) 13%,var(--surface)); font-weight:500; }
+.picker-radio { display:inline-grid; place-items:center; width:16px; height:16px; flex:none; border:1.5px solid color-mix(in srgb,var(--muted) 55%,var(--line)); border-radius:50%; color:var(--c); background:var(--surface); }
+.picker-radio[data-checked] { border-color:var(--c); }
+.picker-radio[data-focused], .picker-radio:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.picker-radio-indicator { display:grid; place-items:center; width:100%; height:100%; }
+.picker-radio-indicator svg { width:11px; height:11px; }
+.guide-tabs-root { min-width:0; }
+.tab[data-active] { color:var(--ink); }
+.tab:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+.tab-ind { position:absolute; left:var(--active-tab-left); bottom:0; width:var(--active-tab-width); height:3px; background:var(--ink); border-radius:3px 3px 0 0; transition:left .35s var(--ease-spring),width .35s var(--ease-spring); }
+.role-panel[data-hidden] { display:none; }
+.disclosure-trigger { width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; border:0; background:transparent; color:var(--accent); cursor:pointer; font:600 .88rem var(--f-body); text-align:left; }
+.disclosure-trigger:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:5px; }
+.disclosure-caret { transition:transform .2s var(--ease-out); }
+.disclosure-trigger[data-panel-open] .disclosure-caret { transform:rotate(180deg); }

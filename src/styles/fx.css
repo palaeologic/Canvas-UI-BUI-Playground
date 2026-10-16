@@ -1,0 +1,16 @@
+/* Canvas effect layers. Each layer ignores the pointer except where noted. */
+.cell-field { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.click-burst { position:fixed; inset:0; width:100%; height:100%; z-index:60; pointer-events:none; }
+.dna-loader { position:fixed; inset:0; z-index:80; background:var(--bg); display:grid; place-items:center; transition:opacity .7s ease; }
+.dna-loader.is-exiting { opacity:0; pointer-events:none; }
+.dna-canvas { position:absolute; inset:0; width:100%; height:100%; }
+.dna-caption { position:absolute; left:0; right:0; top:calc(50% + 64px); text-align:center; margin:0; font:500 .78rem var(--f-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.seq-fallback { position:relative; }
+.seq-fallback.is-animating { animation:seq-read .9s cubic-bezier(.2,.7,.2,1) both; }
+.seq-fallback.is-animating::after { content:""; position:absolute; top:0; bottom:0; width:2px; left:0; pointer-events:none; background:var(--accent); box-shadow:-24px 0 32px 8px color-mix(in srgb,var(--accent) 30%,transparent); animation:seq-head .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes seq-read { from { clip-path:inset(0 100% 0 0); opacity:.4; } to { clip-path:inset(0 0 0 0); opacity:1; } }
+@keyframes seq-head { from { left:0; opacity:1; } 90% { opacity:1; } to { left:100%; opacity:0; } }
+.fx-status { display:inline-flex; align-items:center; gap:8px; font:.75rem var(--f-mono); color:var(--muted); }
+.fx-status .led { width:8px; height:8px; border-radius:50%; background:var(--muted); }
+.fx-status .led.on { background:var(--haiku); box-shadow:0 0 0 3px color-mix(in srgb,var(--haiku) 25%,transparent); }
+@media (prefers-reduced-motion:reduce) { .seq-fallback.is-animating,.seq-fallback.is-animating::after { animation:none; } .dna-loader { transition:none; } }

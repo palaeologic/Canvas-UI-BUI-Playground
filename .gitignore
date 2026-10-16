@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Generated build output
+/dist/
+
+# Local/editor files
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# Internal planning/spec material is intentionally not published.
+/docs/

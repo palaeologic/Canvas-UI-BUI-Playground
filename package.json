@@ -1,0 +1,24 @@
+{
+  "name": "pick-your-claude",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot server.ts",
+    "start": "NODE_ENV=production bun server.ts",
+    "build": "bun build --target=bun --production --outdir=dist server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "sweep": "bun run scripts/sweep.ts"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "@base-ui/react": "1.9.0"
+  },
+  "devDependencies": {
+    "@types/bun": "1.2.21",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "typescript": "5.9.2"
+  }
+}

@@ -1,0 +1,21 @@
+/* Entrance and state-change motion. Everything here is switched off for reduced-motion users. */
+
+/* Scroll-in reveals (classes added by useReveal). Content is only hidden once JS has opted in with .reveal-on. */
+.reveal-on [data-reveal]:not([data-stagger]):not(.is-in) { opacity: 0; transform: translateY(18px); }
+.reveal-on [data-reveal]:not([data-stagger]):not(.is-done) { transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-on [data-stagger]:not(.is-in) > * { opacity: 0; transform: translateY(16px); }
+.reveal-on [data-stagger]:not(.is-done) > * { transition: opacity .6s var(--ease-out), transform .6s var(--ease-out), box-shadow .25s, border-color .25s, background-color .25s;
+  transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s, 0s; }
+.hero.is-in .wells i.on { animation: well-fill .45s var(--ease-spring) backwards; animation-delay: calc(500ms + var(--k) * 110ms); }
+@keyframes well-fill { from { transform: scale(0); } }
+.swap { animation: swap-in .45s var(--ease-spring); }
+.swap-soft { animation: soft-in .4s var(--ease-out); }
+@keyframes swap-in { from { opacity: 0; transform: translateY(70%); } }
+@keyframes soft-in { from { opacity: 0; transform: translateY(4px); } }
+.result.flash { animation: flash .5s var(--ease-out); }
+@keyframes flash { from { box-shadow: 0 0 0 6px color-mix(in srgb, var(--c) 28%, transparent); } to { box-shadow: 0 0 0 0 transparent; } }
+.why-row.deciding { animation: soft-in .35s var(--ease-out); }
+.role-intro { animation: soft-in .35s var(--ease-out); }
+.cell-field { -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.28) 16%, rgba(0,0,0,.18) 50%, rgba(0,0,0,.28) 84%, #000 100%); mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.28) 16%, rgba(0,0,0,.18) 50%, rgba(0,0,0,.28) 84%, #000 100%); }
+@media (max-width: 860px) { .cell-field { -webkit-mask-image: none; mask-image: none; opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .reveal-on [data-reveal], .reveal-on [data-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; } .hero.is-in .wells i.on, .swap, .swap-soft, .result.flash, .why-row.deciding, .role-intro { animation: none !important; } .meter-fill, .meter-thumb, .tab-ind, .picker-option, .picker-radio-indicator { transition: none !important; } @media (hover: hover) { .preset:hover, .card:hover, .habit:hover { transform: none; } } }

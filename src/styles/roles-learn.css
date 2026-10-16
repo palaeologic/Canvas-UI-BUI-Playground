@@ -1,0 +1,37 @@
+/* Role finder, "why this setting" chips and the Keep learning section. */
+.whyline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; border-top: 1px solid var(--line); padding-top: 10px; margin-top: auto; }
+.whyline + .card-foot { margin-top: 0; gap: 8px; flex-wrap: wrap; }
+.try-btn { font: 500 0.8rem var(--f-body); color: var(--accent); background: transparent; border: 1px solid color-mix(in srgb, var(--accent) 60%, var(--line)); border-radius: 999px; padding: 4px 11px; cursor: pointer; }
+.try-btn:hover { background: var(--accent-soft); }
+.try-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.whylabel { font: 500 0.7rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-right: 2px; }
+.why-chip { font-size: 0.78rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); background: var(--bg); }
+.why-chip.lvl1 { color: var(--ink); }
+.why-chip.lvl2 { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); background: var(--warn-bg); }
+.finder { display: flex; flex-direction: column; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.finder label { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; }
+.finder input { font: 1rem var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; max-width: 560px; }
+.finder input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.hits { display: flex; flex-direction: column; gap: 6px; }
+.hits:empty { display: none; }
+.hit { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.92rem; }
+.hitname { min-width: 0; }
+.hitname small { font: 0.7rem var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-left: 4px; }
+.goto { font: 500 0.85rem var(--f-body); border-radius: 999px; padding: 3px 11px; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: var(--surface); }
+.goto.also { background: none; color: var(--ink); border-color: var(--line); }
+.nohit { font-size: 0.9rem; color: var(--muted); }
+.learn { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.learn a.lcard { text-decoration: none; color: inherit; }
+.lcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; font-size: 0.94rem; }
+a.lcard:hover { border-color: var(--accent); }
+.lcard .src { font: 0.72rem var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.lcard p { color: var(--muted); }
+.practice { grid-column: 1 / -1; background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+.practice ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 3px; }
+.resource-details { grid-column: 1 / -1; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.resource-details > .disclosure-trigger { padding: 13px 16px; font-family: var(--f-display); font-weight: 600; color: var(--ink); }
+.resource-details > .disclosure-trigger[data-panel-open] { border-bottom: 1px solid var(--line); }
+.learn-resources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px; }
+.learn-resources .lcard { box-shadow: none; }
+@media (max-width: 860px) { .learn, .learn-resources { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .hit { padding-bottom: 6px; border-bottom: 1px solid var(--line); } .hit:last-child { border-bottom: 0; } }
